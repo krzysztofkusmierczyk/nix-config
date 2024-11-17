@@ -145,6 +145,7 @@
     lm_sensors
     nil
     nixpkgs-fmt
+    synology-drive-client
   ];
 
 
