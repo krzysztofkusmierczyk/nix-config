@@ -55,7 +55,6 @@
 
   environment.plasma5.excludePackages = with pkgs; [
     plasma5Packages.elisa
-    plasma5Packages.konsole
   ];
 
   # Configure keymap in X11
