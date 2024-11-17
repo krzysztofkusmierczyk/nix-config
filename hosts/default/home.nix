@@ -35,9 +35,9 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
-nixpkgs.config = {
-  allowUnfree = true;
-};
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
 
   programs.git = {
     enable = true;
@@ -70,6 +70,29 @@ nixpkgs.config = {
       Host *
           IdentityAgent ~/.1password/agent.sock
     '';
+  };
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
+    shellAliases = {
+      ll = "ls -l";
+      la = "ls -la";
+      update = "sudo nixos-rebuild switch --flake ~/nixos-config#default";
+    };
+    history = {
+      size = 10000;
+      path = "${config.xdg.dataHome}/zsh/history";
+    };
+
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "docker" "docker-compose" "pyenv" ];
+      theme = "agnoster";
+    };
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
