@@ -95,6 +95,12 @@
     };
   };
 
+
+  programs.wezterm = {
+    enable = true;
+    extraConfig = builtins.readFile ./dotfiles/wezterm.lua; 
+  };
+
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {

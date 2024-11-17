@@ -134,7 +134,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     neovim
-    wezterm
     discord
     slack
     protonup
