@@ -159,6 +159,18 @@
       Type=Application
     '';
 
+    ".config/autostart/1password.destkop".text = ''
+      [Desktop Entry]
+      Categories=Office;
+      Comment=Password manager and secure wallet
+      Exec=1password --silent %U
+      Icon=1password
+      MimeType=x-scheme-handler/onepassword;
+      Name=1Password
+      StartupWMClass=1Password
+      Terminal=false
+      Type=Application 
+    '';
   };
 
   # Home Manager can also manage your environment variables through
