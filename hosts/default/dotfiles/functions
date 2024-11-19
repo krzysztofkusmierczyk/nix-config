@@ -1,0 +1,26 @@
+# Reset staging to current branch and force push
+function reset-staging() {
+	local branch=$(current_branch)
+
+	git switch staging
+	git reset --hard $branch
+	git push --force
+	git switch $branch
+}
+
+function merge-staging() {
+	local branch=$(current_branch)
+
+	git switch staging
+	git pull
+	# git reset --hard origin/staging
+	git merge $branch
+	git push
+	git switch $branch
+}
+
+function pod-run() {
+	local pod_name=$(kubectl get pod --namespace $1 -o name | head -n 1 | sed 's/pod\///')
+	echo "Running on $pod_name"
+	kubectl exec $pod_name --namespace $1 -- ${@:2}
+}

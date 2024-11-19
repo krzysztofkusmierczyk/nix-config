@@ -77,12 +77,7 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      ll = "ls -l";
-      la = "ls -la";
-      update = "sudo nixos-rebuild switch --flake ~/nixos-config#default";
-    };
+    initExtra = "source ${./dotfiles/functions}";
     history = {
       size = 10000;
       path = "${config.xdg.dataHome}/zsh/history";
@@ -96,9 +91,29 @@
   };
 
 
+  home.shellAliases = {
+    ll = "ls -l";
+    la = "ls -la";
+    update = "sudo nixos-rebuild switch --flake ~/nixos-config#default";
+    cdp = "cf ~/proj";
+    gai = "git add -i"; # TODO: only enable when git installed
+    gbDa = "git branch | grep - v 'develop' | grep - v 'master' | grep - v 'main'| xargs git branch - D"; # TODO only enable when git is installed
+
+    # TODO only enable when docker is installed
+    dknukev = "docker volume rm $(docker volume ls - q)";
+    dknuke = "docker kill $(docker ps -q) ; docker system prune -af --volumes ; docker volume rm $(docker volume ls -q)";
+    lzd = "lazydocker";
+    dkps = "docker ps";
+
+    # TODO only when assume is installed
+    assume = "source assume";
+
+    get_uuid = "python - c 'import uuid; print(uuid.uuid4())'";
+  };
+
   programs.wezterm = {
     enable = true;
-    extraConfig = builtins.readFile ./dotfiles/wezterm.lua; 
+    extraConfig = builtins.readFile ./dotfiles/wezterm.lua;
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -163,7 +178,14 @@
   #  /etc/profiles/per-user/tetius/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    NVM_DIR = "$HOME/.nvm";
+    COMPOSE_DOCKER_CLI_BUILD = 1;
+    DOCKER_BUILDKIT = 1;
+    GRPC_PYTHON_BUILD_SYSTEM_OPENSSL = 1;
+    GRPC_PYTHON_BUILD_SYSTEM_ZLIB = 1;
+    PAGER = "less -S"; # pgsql don't wrap select output
   };
 
   # Let Home Manager install and manage itself.
