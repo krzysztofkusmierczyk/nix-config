@@ -70,7 +70,6 @@
 
   services.xserver.videoDrivers = [ "amdgpu" ];
   boot.initrd.kernelModules = [ "amdgpu" ];
-  # systemd.targets.hibernate.enable = false;
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
