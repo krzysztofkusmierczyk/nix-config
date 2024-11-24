@@ -95,12 +95,12 @@
     ll = "ls -l";
     la = "ls -la";
     update = "sudo nixos-rebuild switch --flake ~/nixos-config#default";
-    cdp = "cf ~/proj";
+    cdp = "cd ~/proj";
     gai = "git add -i"; # TODO: only enable when git installed
-    gbDa = "git branch | grep - v 'develop' | grep - v 'master' | grep - v 'main'| xargs git branch - D"; # TODO only enable when git is installed
+    gbDa = "git branch | grep -v develop | grep -v master | grep -v main | xargs git branch -D"; # TODO only enable when git is installed
 
     # TODO only enable when docker is installed
-    dknukev = "docker volume rm $(docker volume ls - q)";
+    dknukev = "docker volume rm $(docker volume ls -q)";
     dknuke = "docker kill $(docker ps -q) ; docker system prune -af --volumes ; docker volume rm $(docker volume ls -q)";
     lzd = "lazydocker";
     dkps = "docker ps";
@@ -108,7 +108,7 @@
     # TODO only when assume is installed
     assume = "source assume";
 
-    get_uuid = "python - c 'import uuid; print(uuid.uuid4())'";
+    get_uuid = "python -c 'import uuid; print(uuid.uuid4())'"; # TODO only when python installed
   };
 
   programs.wezterm = {
