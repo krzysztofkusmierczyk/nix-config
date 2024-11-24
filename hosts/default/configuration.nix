@@ -9,6 +9,7 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules/nixos
       inputs.home-manager.nixosModules.default
     ];
 
@@ -68,13 +69,14 @@
     variant = "";
   };
 
-  services.xserver.videoDrivers = [ "amdgpu" ];
-  boot.initrd.kernelModules = [ "amdgpu" ];
-  hardware.graphics = {
+  amdgraphics.enable = true;
+  /*   services.xserver.videoDrivers = [ "amdgpu" ];
+    boot.initrd.kernelModules = [ "amdgpu" ];
+    hardware.graphics = {
     enable = true;
     enable32Bit = true;
-  };
-
+    };
+   */
 
   # Configure console keymap
   console.keyMap = "pl2";
