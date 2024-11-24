@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, inputs, ... }:
 
 {
@@ -18,7 +14,6 @@
 
   boot.initrd.luks.devices."luks-a49a32b3-211a-4371-ba83-fa3cb7975ebb".device = "/dev/disk/by-uuid/a49a32b3-211a-4371-ba83-fa3cb7975ebb";
   networking.hostName = "harute"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   hardware.bluetooth = {
     enable = true;
@@ -27,11 +22,6 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
   networking.networkmanager.enable = true;
 
   # Set your time zone.
@@ -54,10 +44,8 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-
   services.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
-
   environment.plasma5.excludePackages = with pkgs; [
     plasma5Packages.elisa
   ];
@@ -69,13 +57,7 @@
   };
 
   amdgraphics.enable = true;
-  /*   services.xserver.videoDrivers = [ "amdgpu" ];
-    boot.initrd.kernelModules = [ "amdgpu" ];
-    hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-    };
-   */
+  steam.enable = true;
 
   # Configure console keymap
   console.keyMap = "pl2";
@@ -140,7 +122,6 @@
     neovim
     discord
     slack
-    protonup
     ripgrep
     gnumake
     unzip
@@ -150,16 +131,6 @@
     nixpkgs-fmt
     synology-drive-client
   ];
-
-
-  environment.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/tetius/.steam/root/compatibilitytools.d";
-  };
-
-
-  programs.steam.enable = true;
-  programs.steam.gamescopeSession.enable = true;
-  programs.gamemode.enable = true;
 
 
 

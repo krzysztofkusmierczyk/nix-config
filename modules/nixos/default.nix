@@ -1,3 +1,6 @@
 { pkgs, lib, ... }: {
-  imports = [ ./amdgraphics.nix ];
+  imports = [
+    ./amdgraphics.nix
+    ./steam.nix
+  ];
 }
