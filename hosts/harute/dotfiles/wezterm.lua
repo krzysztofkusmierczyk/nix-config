@@ -6,7 +6,7 @@ local config = wezterm.config_builder()
 
 config.front_end = 'WebGpu'
 config.color_scheme = "tokyonight_night"
-config.font_size = 15
+config.font_size = 12
 config.window_decorations = "RESIZE"
 
 -- config.window_background_opacity = 0.9

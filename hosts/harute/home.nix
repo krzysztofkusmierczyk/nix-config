@@ -94,7 +94,7 @@
   home.shellAliases = {
     ll = "ls -l";
     la = "ls -la";
-    update = "sudo nixos-rebuild switch --flake ~/nixos-config";
+    update = "sudo nixos-rebuild switch --flake ~/nix-config";
     cdp = "cd ~/proj";
     gai = "git add -i"; # TODO: only enable when git installed
     gbDa = "git branch | grep -v develop | grep -v master | grep -v main | xargs git branch -D"; # TODO only enable when git is installed
@@ -111,10 +111,12 @@
     get_uuid = "python -c 'import uuid; print(uuid.uuid4())'"; # TODO only when python installed
   };
 
+
+
   programs.wezterm = {
     enable = true;
-    extraConfig = builtins.readFile ./dotfiles/wezterm.lua;
   };
+  xdg.configFile."wezterm/wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/hosts/harute/dotfiles/wezterm.lua";
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -129,7 +131,6 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-
 
     ".config/autostart/steam.desktop".text = ''
       [Desktop Entry]
