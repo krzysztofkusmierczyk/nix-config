@@ -94,7 +94,7 @@
   home.shellAliases = {
     ll = "ls -l";
     la = "ls -la";
-    update = "sudo nixos-rebuild switch --flake ~/nixos-config#default";
+    update = "sudo nixos-rebuild switch --flake ~/nixos-config";
     cdp = "cd ~/proj";
     gai = "git add -i"; # TODO: only enable when git installed
     gbDa = "git branch | grep -v develop | grep -v master | grep -v main | xargs git branch -D"; # TODO only enable when git is installed
