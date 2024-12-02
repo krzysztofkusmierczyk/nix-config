@@ -12,6 +12,14 @@
         vscodevim.vim
         enkia.tokyo-night
       ];
+      enableUpdateCheck = false;
+      userSettings = {
+        "extensions.experimental.affinity" = {
+          "asvetliakov.vscode-neovim" = 1;
+        };
+        "workbench.colorTheme" = "Tokyo Night";
+        "workbench.startupEditor" = "none";
+      };
     };
   };
 }

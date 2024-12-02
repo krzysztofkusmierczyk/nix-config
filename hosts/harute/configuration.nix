@@ -89,16 +89,6 @@
     isNormalUser = true;
     description = "tetius";
     extraGroups = [ "networkmanager" "wheel" ];
-/*     packages = with pkgs; [
-      vscode
-      (vscode-with-extensions.override {
-        vscodeExtensions = with vscode-extensions; [
-          jnoortheen.nix-ide
-          vscodevim.vim
-          enkia.tokyo-night
-        ];
-      })
-    ]; */
   };
 
   home-manager = {
