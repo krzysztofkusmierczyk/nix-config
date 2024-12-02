@@ -58,7 +58,7 @@
 
   amdgraphics.enable = true;
   steam.enable = true;
-
+  one-password.enable = true;
   # Configure console keymap
   console.keyMap = "pl2";
 
@@ -131,14 +131,6 @@
     nixpkgs-fmt
     synology-drive-client
   ];
-
-
-
-  programs._1password.enable = true;
-  programs._1password-gui = {
-    enable = true;
-    polkitPolicyOwners = [ "tetius" ];
-  };
 
   hardware.ckb-next.enable = true;
   
