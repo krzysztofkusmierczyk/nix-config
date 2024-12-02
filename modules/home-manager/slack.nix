@@ -1,11 +1,15 @@
-{ pkgs, lib, config, ... }: {
-
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
     slack.enable = lib.mkEnableOption "Enables slack.";
   };
 
   config = lib.mkIf config.slack.enable {
-    home.packages = [ pkgs.slack ];
+    home.packages = [pkgs.slack];
     xdg.configFile."autostart/slack.destkop" = {
       text = ''
         [Desktop Entry]

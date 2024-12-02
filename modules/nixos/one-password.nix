@@ -1,5 +1,9 @@
-{ pkgs, lib, config, ... }: {
-
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
     one-password.enable = lib.mkEnableOption "Enable 1password.";
   };
@@ -8,7 +12,7 @@
     programs._1password.enable = true;
     programs._1password-gui = {
       enable = true;
-      polkitPolicyOwners = [ "tetius" ];
+      polkitPolicyOwners = ["tetius"];
     };
   };
 }

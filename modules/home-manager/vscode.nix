@@ -1,5 +1,9 @@
-{ pkgs, lib, config, ... }: {
-
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
     vscode.enable = lib.mkEnableOption "Enables and configures vscode with extensions.";
   };
@@ -25,7 +29,7 @@
         "nix.serverSettings" = {
           "nixd" = {
             "formatting" = {
-              "command" = [ "alejandra" ];
+              "command" = ["alejandra"];
             };
           };
         };

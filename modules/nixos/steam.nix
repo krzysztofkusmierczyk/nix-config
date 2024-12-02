@@ -1,5 +1,9 @@
-{ pkgs, lib, config, ... }: {
-
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
     steam.enable = lib.mkEnableOption "Enables steam client and other tools.";
   };
