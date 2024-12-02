@@ -1,6 +1,9 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, osConfig, ... }:
 
 {
+  imports = [
+    ../../modules/home-manager
+  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "tetius";
@@ -118,61 +121,44 @@
   };
   xdg.configFile."wezterm/wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/hosts/harute/dotfiles/wezterm.lua";
 
+  xdg.configFile."autostart/steam.desktop" =
+    {
+      enable = osConfig.steam.enable;
+      text = ''
+        [Desktop Entry]
+        Name=Steam
+        Exec=steam -silent %U
+        Icon=steam
+        Terminal=false
+        Type=Application
+        Categories=Network;FileTransfer;Game;
+        MimeType=x-scheme-handler/steam;x-scheme-handler/steamlink;
+        Actions=Store;Community;Library;Servers;Screenshots;News;Settings;BigPicture;Friends;
+        PrefersNonDefaultGPU=true
+        X-KDE-RunOnDiscreteGpu=true
+      '';
+    };
+
+  xdg.configFile."autostart/1password.desktop" =
+    {
+      enable = osConfig.one-password.enable;
+      text = ''
+        [Desktop Entry]
+        Categories=Office;
+        Comment=Password manager and secure wallet
+        Exec=1password --silent %U
+        Icon=1password
+        MimeType=x-scheme-handler/onepassword;
+        Name=1Password
+        StartupWMClass=1Password
+        Terminal=false
+        Type=Application
+      '';
+    };
+
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
-  home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
-
-    ".config/autostart/steam.desktop".text = ''
-      [Desktop Entry]
-      Name=Steam
-      Exec=steam -silent %U
-      Icon=steam
-      Terminal=false
-      Type=Application
-      Categories=Network;FileTransfer;Game;
-      MimeType=x-scheme-handler/steam;x-scheme-handler/steamlink;
-      Actions=Store;Community;Library;Servers;Screenshots;News;Settings;BigPicture;Friends;
-      PrefersNonDefaultGPU=true
-      X-KDE-RunOnDiscreteGpu=true
-    '';
-
-    ".config/autostart/slack.destkop".text = ''
-      [Desktop Entry]
-      Name=Slack
-      Categories=Network;InstantMessaging;
-      Comment=Slack Desktop
-      Exec=slack --startup --silent %U
-      GenericName=Slack Client for Linux
-      Icon=slack
-      MimeType=x-scheme-handler/slack;
-      StartupNotify=true
-      StartupWMClass=Slack
-      Type=Application
-    '';
-
-    ".config/autostart/1password.destkop".text = ''
-      [Desktop Entry]
-      Categories=Office;
-      Comment=Password manager and secure wallet
-      Exec=1password --silent %U
-      Icon=1password
-      MimeType=x-scheme-handler/onepassword;
-      Name=1Password
-      StartupWMClass=1Password
-      Terminal=false
-      Type=Application 
-    '';
-  };
+  home.file = { };
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a

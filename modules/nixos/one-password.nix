@@ -5,8 +5,6 @@
   };
 
   config = lib.mkIf config.one-password.enable {
-
-
     programs._1password.enable = true;
     programs._1password-gui = {
       enable = true;
