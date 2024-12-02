@@ -33,6 +33,15 @@
             };
           };
         };
+
+        "options" = {
+          "nixos" = {
+            "expr" = "(builtins.getFlake \"${config.home.homeDirectory}/nix-config\").nixosConfigurations.CONFIGNAME.options";
+          };
+          "home_manager" = {
+            "expr" = "(builtins.getFlake \"${config.home.homeDirectory}/nix-config\").homeConfigurations.CONFIGNAME.options";
+          };
+        };
       };
     };
   };
