@@ -116,13 +116,15 @@
     unzip
     gcc
     lm_sensors
-    nil
-    nixpkgs-fmt
     synology-drive-client
+    alejandra
+    nixd
   ];
 
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+
   hardware.ckb-next.enable = true;
-  
+
 
   # Limit the number of generations to keep
   boot.loader.systemd-boot.configurationLimit = 20;

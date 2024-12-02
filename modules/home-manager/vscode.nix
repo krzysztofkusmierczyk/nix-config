@@ -19,6 +19,16 @@
         };
         "workbench.colorTheme" = "Tokyo Night";
         "workbench.startupEditor" = "none";
+
+        "nix.serverPath" = "nixd";
+        "nix.enableLanguageServer" = true;
+        "nix.serverSettings" = {
+          "nixd" = {
+            "formatting" = {
+              "command" = [ "alejandra" ];
+            };
+          };
+        };
       };
     };
   };
