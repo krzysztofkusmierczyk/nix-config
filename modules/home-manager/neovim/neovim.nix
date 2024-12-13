@@ -12,7 +12,7 @@
     home.packages = [pkgs.neovim];
 
     xdg.configFile."nvim" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/modules/home-manager/neovim/files";
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/modules/home-manager/neovim/nvim";
       recursive = true;
     };
   };
