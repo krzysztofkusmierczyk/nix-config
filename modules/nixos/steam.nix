@@ -11,6 +11,7 @@
   config = lib.mkIf config.steam.enable {
     environment.systemPackages = with pkgs; [
       protonup
+      mangohud
     ];
     environment.sessionVariables = {
       STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/tetius/.steam/root/compatibilitytools.d";
