@@ -119,6 +119,7 @@
     synology-drive-client
     alejandra
     nixd
+    obsidian
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
