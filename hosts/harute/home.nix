@@ -158,6 +158,19 @@
       Type=Application
     '';
   };
+  
+  xdg.configFile."autostart/synology-drive.desktop" = {
+    text = ''
+    [Desktop Entry]
+    Categories=Network;FileTransfer;
+    Comment=Synology Drive Client
+    Exec=synology-drive start
+    Icon=synology-drive
+    Name=Synology Drive Client
+    Terminal=false
+    Type=Application
+    '';
+  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
