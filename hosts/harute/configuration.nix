@@ -120,8 +120,7 @@
     alejandra
     nixd
     obsidian
-    wl-clipboard
-    xclip
+
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
