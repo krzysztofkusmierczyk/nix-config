@@ -16,12 +16,14 @@ return {
           fzf = {}
         },
       }
-      vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files)
+      local builtin = require 'telescope.builtin'
+      vim.keymap.set("n", "<leader>ff", builtin.find_files)
       vim.keymap.set("n", "<leader>fn",
         function()
-          require("telescope.builtin").find_files { cwd = vim.fn.stdpath("config") }
+          builtin.find_files { cwd = vim.fn.stdpath("config") }
         end)
-      vim.keymap.set("n", "<leader>fh", require("telescope.builtin").help_tags)
+      vim.keymap.set("n", "<leader>fh", builtin.help_tags)
+      vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = '[F]ind by [G]rep' })
     end
   }
 }
