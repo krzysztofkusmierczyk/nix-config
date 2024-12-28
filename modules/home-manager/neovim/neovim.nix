@@ -11,6 +11,8 @@
   config = lib.mkIf config.neovim.enable {
     home.packages = [
       pkgs.neovim
+
+      pkgs.nerdfonts
       
       # unnamedplus clipboarf support. See :help clipboard
       pkgs.wl-clipboard
