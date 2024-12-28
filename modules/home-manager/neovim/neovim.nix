@@ -18,6 +18,10 @@
       
       # LSPs
       pkgs.lua-language-server
+
+      # Telescope deps
+      pkgs.ripgrep
+      pkgs.fd
     ];
 
     xdg.configFile."nvim" = {
