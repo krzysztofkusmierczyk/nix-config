@@ -1,12 +1,27 @@
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 
 -- TODO: https://alexplescan.com/posts/2024/08/10/wezterm/
 
 local config = wezterm.config_builder()
 
-config.front_end = 'WebGpu'
+local is_mac = wezterm.target_triple:find("darwin") ~= nil
+
+local function does_directory_exist(path)
+	local command = 'test -d "' .. path .. '"'
+	local result = os.execute(command)
+	return result == 0
+end
+-- For macos
+local homebrew_bin_path = "/opt/homebrew/bin"
+if does_directory_exist(homebrew_bin_path) then
+	config.set_environment_variables = {
+		PATH = "/opt/homebrew/bin:" .. os.getenv("PATH"),
+	}
+end
+
+config.front_end = "WebGpu"
 config.color_scheme = "tokyonight_night"
-config.font_size = 12
+config.font_size = is_mac and 15 or 12
 config.window_decorations = "RESIZE"
 
 -- config.window_background_opacity = 0.9
