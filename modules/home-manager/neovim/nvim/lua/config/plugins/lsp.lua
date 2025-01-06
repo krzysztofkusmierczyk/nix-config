@@ -105,20 +105,6 @@ return {
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
             end, '[T]oggle Inlay [H]ints')
           end
-
-          -- Format on save
-          local c = vim.lsp.get_client_by_id(event.data.client_id)
-          if not c then return end
-
-          if c.supports_method("textDocument/formatting") then
-            -- Format the current buffer on save
-            vim.api.nvim_create_autocmd('BufWritePre', {
-              buffer = event.buf,
-              callback = function()
-                vim.lsp.buf.format({ bufnr = event.buf, id = c.id })
-              end,
-            })
-          end
         end,
       })
     end
