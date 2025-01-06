@@ -1,12 +1,12 @@
 return {
   {
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+  },
+  {
     "neovim/nvim-lspconfig",
     dependencies = {
       'saghen/blink.cmp',
-      {
-        "folke/lazydev.nvim",
-        ft = "lua", -- only load on lua files
-      },
       { 'j-hui/fidget.nvim', opts = {} },
     },
     config = function()
