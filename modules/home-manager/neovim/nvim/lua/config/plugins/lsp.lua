@@ -15,7 +15,8 @@ return {
 
       local config = require("lspconfig")
       local servers = {
-        lua_ls = {}
+        lua_ls = {},
+        pyright = {},
       }
       for s, c in pairs(servers) do
         c.capabilities = vim.tbl_deep_extend('force', {}, capabilities, c.capabilities or {})
