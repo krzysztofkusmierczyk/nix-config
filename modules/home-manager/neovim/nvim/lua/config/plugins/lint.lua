@@ -11,7 +11,6 @@ return {
         typescript = { 'eslint' },
         typescriptreact = { 'eslint' },
         nix = { "nix" },
-        markdown = { "vale" },
         dockerfile = { "hadolint" },
       }
       -- Create autocommand which carries out the actual linting

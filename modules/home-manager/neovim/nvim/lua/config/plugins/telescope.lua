@@ -15,7 +15,15 @@ return {
             "node_modules",
             "build",
             "dist",
-            "target", ".git", ".next", ".yarn", ".swc", "coverag", }, },
+            "target",
+            ".git",
+            ".next",
+            ".yarn",
+            ".swc",
+            "coverage",
+            "__pycache__",
+            ".ruff_cache" },
+        },
         pickers = {
           find_files = {
             -- theme = "ivy"
