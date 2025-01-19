@@ -16,6 +16,7 @@
   boot.initrd.luks.devices."luks-a49a32b3-211a-4371-ba83-fa3cb7975ebb".device = "/dev/disk/by-uuid/a49a32b3-211a-4371-ba83-fa3cb7975ebb";
   networking.hostName = "harute"; # Define your hostname.
 
+hardware.enableRedistributableFirmware=true;
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
@@ -120,7 +121,8 @@
     alejandra
     nixd
     obsidian
-
+xivlauncher
+heroic
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
