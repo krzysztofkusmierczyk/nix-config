@@ -13,11 +13,11 @@
       pkgs.neovim
 
       pkgs.nerdfonts
-      
+
       # unnamedplus clipboarf support. See :help clipboard
       pkgs.wl-clipboard
       pkgs.xclip
-      
+
       # LSPs
       pkgs.lua-language-server
 

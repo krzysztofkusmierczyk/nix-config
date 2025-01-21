@@ -158,17 +158,17 @@
       Type=Application
     '';
   };
-  
+
   xdg.configFile."autostart/synology-drive.desktop" = {
     text = ''
-    [Desktop Entry]
-    Categories=Network;FileTransfer;
-    Comment=Synology Drive Client
-    Exec=synology-drive start
-    Icon=synology-drive
-    Name=Synology Drive Client
-    Terminal=false
-    Type=Application
+      [Desktop Entry]
+      Categories=Network;FileTransfer;
+      Comment=Synology Drive Client
+      Exec=synology-drive start
+      Icon=synology-drive
+      Name=Synology Drive Client
+      Terminal=false
+      Type=Application
     '';
   };
 
