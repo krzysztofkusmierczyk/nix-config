@@ -25,6 +25,7 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   networking.networkmanager.enable = true;
+  networking.networkmanager.wifi.powersave = false;
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
@@ -124,6 +125,9 @@
     xivlauncher
     heroic
     lutris
+    wine
+    wineWowPackages.full
+    winetricks
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
