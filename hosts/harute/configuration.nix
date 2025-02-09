@@ -16,6 +16,7 @@
   boot.initrd.luks.devices."luks-a49a32b3-211a-4371-ba83-fa3cb7975ebb".device = "/dev/disk/by-uuid/a49a32b3-211a-4371-ba83-fa3cb7975ebb";
   networking.hostName = "harute"; # Define your hostname.
 
+  hardware.enableRedistributableFirmware = true;
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
@@ -24,6 +25,7 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   networking.networkmanager.enable = true;
+  networking.networkmanager.wifi.powersave = false;
 
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
@@ -120,7 +122,12 @@
     alejandra
     nixd
     obsidian
-
+    xivlauncher
+    heroic
+    lutris
+    wine
+    wineWowPackages.full
+    winetricks
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
