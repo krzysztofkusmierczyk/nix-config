@@ -22,7 +22,9 @@ return {
             ".swc",
             "coverage",
             "__pycache__",
-            ".ruff_cache" },
+            ".ruff_cache",
+            ".vnev"
+          },
         },
         pickers = {
           find_files = {
