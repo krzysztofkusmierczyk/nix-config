@@ -23,7 +23,7 @@ return {
             "coverage",
             "__pycache__",
             ".ruff_cache",
-            ".vnev"
+            ".venv"
           },
         },
         pickers = {
