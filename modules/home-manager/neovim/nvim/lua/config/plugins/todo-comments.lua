@@ -15,7 +15,7 @@ return {
         require("todo-comments").jump_prev(jump_opts)
       end, { desc = "Previous todo comment" })
 
-      vim.keymap.set("n", "<leader>st", "<Cmd>TodoTelescope<CR>", { desc = "[S]earch [T]oDos" })
+      vim.keymap.set("n", "<leader>st", "<Cmd>TodoTelescope keywords=TODO,FIX,FIXME<CR>", { desc = "[S]earch [T]oDos" })
     end
   },
 }
