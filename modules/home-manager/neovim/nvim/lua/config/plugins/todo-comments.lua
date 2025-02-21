@@ -14,7 +14,8 @@ return {
       vim.keymap.set("n", "[t", function()
         require("todo-comments").jump_prev(jump_opts)
       end, { desc = "Previous todo comment" })
-      -- TODO: Define a shortcut to show Telescope with TOODOs
+
+      vim.keymap.set("n", "<leader>st", "<Cmd>TodoTelescope<CR>", { desc = "[S]earch [T]oDos" })
     end
   },
 }
