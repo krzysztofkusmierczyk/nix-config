@@ -15,7 +15,9 @@ end
 config.front_end = "WebGpu"
 config.color_scheme = "tokyonight_night"
 config.font_size = is_mac and 15 or 12
+config.font = wezterm.font("Iosevka Term")
 config.window_decorations = "RESIZE"
+config.enable_tab_bar = false
 
 -- config.window_background_opacity = 0.9
 -- config.macos_window_background_blur = 30
