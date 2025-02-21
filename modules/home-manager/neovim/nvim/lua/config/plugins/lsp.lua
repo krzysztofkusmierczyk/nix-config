@@ -134,6 +134,7 @@ return {
 
       local servers = {
         pyright = {},
+        buf_ls = {},
         helm_ls = {
           settings = {
             ["helm-ls"] = {
