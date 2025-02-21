@@ -3,6 +3,7 @@ return {
     "folke/lazydev.nvim",
     ft = "lua",
   },
+  { "towolf/vim-helm", ft = "helm" },
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -133,6 +134,16 @@ return {
 
       local servers = {
         pyright = {},
+        helm_ls = {
+          settings = {
+            ["helm-ls"] = {
+              yamlls = {
+                path = "yaml-language-server",
+              },
+            },
+          },
+        },
+        yamlls = {},
         lua_ls = {
           settings = {
             Lua = {
